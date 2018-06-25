@@ -1,0 +1,17 @@
+﻿body
+{
+    background-color:#f5e6e6;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+nav a{
+    color:#ee6464;
+}
+
