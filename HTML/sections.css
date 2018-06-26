@@ -3,6 +3,11 @@
     background-color:#f5e6e6;
 }
 
+#principal{
+    width: 960px;
+    margin: 0 auto 0 auto;
+}
+
 a {
     text-decoration: none;
 }
@@ -13,5 +18,22 @@ a:hover{
 
 nav a{
     color:#ee6464;
+}
+
+#chap1 {
+    /*border: solid red 1px;*/
+    width: 60%;
+    float: left;
+}
+
+#chap2 {
+    /*border: solid green 1px;*/
+    width: 40%;
+    float: left;
+}
+
+#chap3 {
+    clear:both;
+    border: solid blue 1px;
 }
 
