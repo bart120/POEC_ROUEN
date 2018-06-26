@@ -1,4 +1,6 @@
-﻿body
+﻿*{margin:0;padding:0;}
+
+body
 {
     background-color:#f5e6e6;
 }
@@ -7,6 +9,8 @@
     width: 960px;
     margin: 0 auto 0 auto;
 }
+
+
 
 a {
     text-decoration: none;
