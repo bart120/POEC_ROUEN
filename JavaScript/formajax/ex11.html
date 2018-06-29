@@ -6,6 +6,9 @@
     <title>EX11</title>
 </head>
 <body>
+    <ul id="lesArticles">
+
+    </ul>
 
     <script src="httpRequest.js"></script>
     <script>
@@ -16,6 +19,28 @@
         httpReq.onreadystatechange = () => {
             if (httpReq.readyState == 4) {
                 console.log(httpReq.responseText);
+                let data = JSON.parse(httpReq.responseText);
+
+                let ul = document.querySelector('#lesArticles');
+
+                //1
+                for (let item of data) {
+                    ul.innerHTML += `<li>${item.title}</li>`;
+                }
+
+                //2
+                /*
+                let articles = data.filter(x => x.userId == 7);
+                for (let item of articles) {
+                    ul.insertAdjacentHTML('beforeend', `<li>${item.title}</li>`);
+                }*/
+
+                //3
+                /*
+                let titres = data.map(x => x.title);
+                for (let item of titres) {
+                    ul.insertAdjacentHTML('beforeend', `<li>${item}</li>`);
+                }*/
             }
         };
 

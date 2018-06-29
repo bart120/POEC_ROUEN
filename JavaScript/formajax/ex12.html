@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>EX12</title>
+</head>
+<body>
+
+    <script src="httpRequest.js"></script>
+    <script>
+        let httpReq = getHttpRequest();
+
+        httpReq.onreadystatechange = () => {
+            if (httpReq.readyState == 4) {
+                console.log(httpReq.responseText);
+                alert("Article créé");
+            }
+        };
+
+        httpReq.open('POST', 'http://jsonplaceholder.typicode.com/posts', true);
+
+        //1
+        /*let titre = 'Le titre';
+        let contenu = 'Le contenu';
+        httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpReq.send(`title=${titre}&body=${contenu}`);*/
+
+        //2
+        let article = { title: 'Le titre', body: 'le contenu' };
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(JSON.stringify(article));
+
+    </script>
+
+</body>
+</html>
