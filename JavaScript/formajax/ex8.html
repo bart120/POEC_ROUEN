@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form method="get">
+        <input type="text" name="name">
+        <button type="submit">Valider</button>
+    </form>
+
+    <script>
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (ev) => {
+            let input = document.querySelector('input');
+            if (input.value == '') {
+                input.style.borderColor = 'red';
+                ev.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
