@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>EX11</title>
+</head>
+<body>
+
+    <script src="httpRequest.js"></script>
+    <script>
+        //récupération de l'objet de communication
+        let httpReq = getHttpRequest();
+
+        //création du callback
+        httpReq.onreadystatechange = () => {
+            if (httpReq.readyState == 4) {
+                console.log(httpReq.responseText);
+            }
+        };
+
+        //paramétrage et ouverture de la communication
+        httpReq.open('GET', 'http://jsonplaceholder.typicode.com/posts', true);
+
+        //envoi de la demande
+        httpReq.send();
+    </script>
+</body>
+</html>
