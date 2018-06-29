@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    setInterval(function(){
+    let ws = new WebSocket('wss://echo.websocket.org/');
+
+    ws.addEventListener('open', function(){
+        ws.send('TEST');
+    });
+
+    ws.addEventListener('message', function(event){
+        console.log(event.data, Notification.permission);
+
+        if(window.Notification && Notification.permission === "granted"){
+            var notif = new Notification('Alert: ' + event.data);
+        }
+
+        else if(window.Notification && Notification.permission !== 'denied'){
+            console.log(Notification.permission);
+            Notification.requestPermission(function(status){
+                if(!(Notification.permission !== status)){
+                    Notification.permission = status;
+                    //console.log(permission);
+                }
+                
+                if(status === 'granted'){
+                    var notif = new Notification('Alert: ' + event.data);
+                }
+
+            });
+
+        }
+    });
+//}, 5000);
+</script>
+
+</body>
+</html>

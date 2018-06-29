@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<span></span>
+
+
+<script>
+    //ES5
+    navigator.geolocation.getCurrentPosition(
+        function(position){
+            document.querySelector('span').innerHTML = 
+                position.coords.latitude + ', ' +  position.coords.longitude;
+        },
+        function(){
+            alert("Géolocalisation impossible.");
+        }
+    );
+
+    //ES6
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            document.querySelector('span').innerHTML = 
+                position.coords.latitude + ', ' +  position.coords.longitude;
+        },
+        () => alert("Géolocalisation impossible.")
+    );
+    
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

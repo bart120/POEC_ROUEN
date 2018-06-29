@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let worker = new Worker('test.js');
+
+    //premiere syntax
+    worker.onmessage = function(e){
+        console.log('1: ' + e.data);
+    }
+
+    //deuxieme syntax
+    worker.addEventListener('message', function(e){
+        console.log('2: ' + e.data);
+    });
+
+    //worker.addEventListener('message', (e) => console.log('1: ' + e.data));
+</script>
+
+</body>
+</html>

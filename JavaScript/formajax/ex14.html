@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<canvas style="background-color: aqua;" width="300" height="300"></canvas>
+
+
+<script>
+    function dessiner(){
+        let canvas = document.querySelector('canvas').getContext('2d');
+        canvas.fillStyle = 'orange';
+        canvas.fillRect(0, 0, 200, 200);
+
+        canvas.fillStyle = '#FFF'
+        canvas.globalAlpha = 0.2;
+        for(let i=0; i< 8; i++){
+            canvas.beginPath();
+            canvas.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+            canvas.fill();
+        }
+    }
+    dessiner();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
