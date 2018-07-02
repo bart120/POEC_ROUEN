@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>EX01</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="name">
+        <button type="submit">Valider</button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('input').keyup(function(ev){
+                console.log($(this).val());
+            });
+        });
+    </script>
+</body>
+</html>

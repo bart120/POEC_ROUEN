@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style type="text/css">
+        .un {
+            height: 100px;
+            width: 100px;
+            background: red;
+        }
+    </style>
+    <div class="un"></div>
+    <button>Change</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('button').click(function () {
+                $('div').toggleClass('un');
+            });
+        });
+        
+    </script>
+</body>
+</html>
