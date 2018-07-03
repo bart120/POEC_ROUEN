@@ -64,12 +64,40 @@ namespace TodoList.Controllers
         [ResponseType(typeof(TestModel))]
         public IHttpActionResult GetTest(int id)
         {
-            if(id == 42)
+            XDocument doc = XDocument.Load(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+            /*
+            TestModel test = null;
+
+            var elements = doc.Root.Elements();
+            foreach (var item in elements)
+            {
+                if(int.Parse(item.Element("ID").Value) == id)
+                {
+                    test = new TestModel
+                    {
+                        ID = int.Parse(item.Element("ID").Value),
+                        Commentaire = item.Element("Commentaire").Value
+                    };
+                }
+            }
+
+            if (test == null)
+            {
+                return NotFound();
+            }
+            return Ok(test);
+            */
+            
+            var test = doc.Descendants("Test").SingleOrDefault(
+                        x => int.Parse(x.Element("ID").Value) == id);
+
+            if (test == null)
             {
                 return NotFound();
             }
 
-            return Ok(new TestModel { ID = id, Commentaire = "Bravo" });
+            return Ok(new TestModel { ID = int.Parse(test.Element("ID").Value),
+                Commentaire = test.Element("Commentaire").Value });
         }
 
 
@@ -81,7 +109,18 @@ namespace TodoList.Controllers
             {
                 return BadRequest();
             }
-            test.ID = 101;
+            XDocument doc = XDocument.Load(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+            var idMax = doc.Descendants("Test").Max(x => int.Parse(x.Element("ID").Value));
+            idMax++;
+            test.ID = idMax;
+
+
+            XElement element = new XElement("Test");
+            element.Add(new XElement("ID", test.ID));
+            element.Add(new XElement("Commentaire", test.Commentaire));
+            doc.Element("Tests").Add(element);
+            doc.Save(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+
 
             return CreatedAtRoute("DefaultApi", new { id = test.ID }, test);
         }
