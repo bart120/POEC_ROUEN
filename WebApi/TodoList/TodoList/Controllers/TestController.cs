@@ -109,23 +109,68 @@ namespace TodoList.Controllers
             {
                 return BadRequest();
             }
+            //Récupérer le doc XML
             XDocument doc = XDocument.Load(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+
+            //Chercher la valeur max des ID des éléments "TEST"
             var idMax = doc.Descendants("Test").Max(x => int.Parse(x.Element("ID").Value));
+            #region Max sans linq
+            /*int max = 0;
+            foreach (var elem in doc.Descendants("Test"))
+            {
+                int valeurID = int.Parse(elem.Element("ID").Value);
+                if (valeurID > max)
+                    max = valeurID;
+            }*/
+            #endregion
+            //incrémentation
             idMax++;
+
             test.ID = idMax;
 
-
+            //Création d'une balise XML "Test"
             XElement element = new XElement("Test");
+
+            //Création des balises enfants "ID" et "Commentaire" avec les valeurs
             element.Add(new XElement("ID", test.ID));
             element.Add(new XElement("Commentaire", test.Commentaire));
+
+            //Ajouter la nouvelle balise dans la balise "Tests"
             doc.Element("Tests").Add(element);
+
+            //Sauvegarder le fichier
             doc.Save(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
 
-
+            //Renvoyer un code 201 "Created" avec l'objet mis à jour
             return CreatedAtRoute("DefaultApi", new { id = test.ID }, test);
         }
 
+        //PUT: api/test/1
+        [ResponseType(typeof(TestModel))]
+        public IHttpActionResult PutTest(int id, TestModel test)
+        {
+            //Tester l'id et id de test et retourner 400 si faux
+            if (id != test.ID)
+                return BadRequest();
 
+            //Récupérer le doc XML
+            XDocument doc = XDocument.Load(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+
+            //Recherche un element par rapport à l'id
+            var elementAModifie = doc.Descendants("Test").SingleOrDefault(x => int.Parse(x.Element("ID").Value) == id);
+
+            if (elementAModifie == null)
+                return BadRequest();
+
+            //Remplacer la valeur de commentaire dans l'élément par celle du test
+            elementAModifie.Element("Commentaire").Value = test.Commentaire;
+
+            //Sauvegarder le doc
+            doc.Save(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+
+            //retourer le code 204
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
     }
 }
