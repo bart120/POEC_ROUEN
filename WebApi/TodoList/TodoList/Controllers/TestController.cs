@@ -172,5 +172,30 @@ namespace TodoList.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [ResponseType(typeof(TestModel))]
+        public IHttpActionResult DeleteTest(int id)
+        {
+            //Récupérer le doc XML
+            XDocument doc = XDocument.Load(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+
+            //Recherche un element par rapport à l'id
+            var elementASupprime = doc.Descendants("Test")
+                .SingleOrDefault(x => int.Parse(x.Element("ID").Value) == id);
+
+            if (elementASupprime == null)
+                return BadRequest();
+
+            //Supprimer l'élément
+            elementASupprime.Remove();
+
+            //Sauvegarder le doc
+            doc.Save(System.Web.Hosting.HostingEnvironment.MapPath("~/donnees.xml"));
+
+            //retourer le code 200 avec l'objet supprimé
+            return Ok(new TestModel {
+                ID = id,
+                Commentaire = elementASupprime.Element("Commentaire").Value
+            });
+        }
     }
 }
