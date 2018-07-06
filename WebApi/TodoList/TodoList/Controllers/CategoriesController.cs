@@ -19,7 +19,7 @@ namespace TodoList.Controllers
         //GET: api/categories
         public IQueryable<Category> GetCategories()
         {
-            return db.Categories;
+            return db.Categories.Where(x => !x.Deleted);
         }
 
         //GET: api/categories/1
