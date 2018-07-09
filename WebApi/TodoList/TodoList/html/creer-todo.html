@@ -45,7 +45,9 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Catégorie</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputCategoryID">
+                            <select class="form-control" id="inputCategoryID">
+                                
+                            </select>
                         </div>
                     </div>
 
@@ -65,6 +67,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+
+            $.get("http://localhost:63757/api/categories", function (data) {
+                //console.log(data);
+                for (let item of data) {
+                    $("#inputCategoryID").append(`<option value="${item.ID}">${item.Name}</option>`)
+                }
+            });
+
+
             $("form").submit(function (ev) {
                 let obj = {
                     Name: $("#inputName").val(),
