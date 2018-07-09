@@ -27,7 +27,7 @@ namespace TodoList.Controllers
         /// <returns></returns>
         public IQueryable<Todo> GetTodos()
         {
-            return db.Todos.Include(x => x.Category);
+            return db.Todos.Include(x => x.Category).Where(x => !x.Deleted);
         }
 
         // GET: api/Todos/5
@@ -40,8 +40,30 @@ namespace TodoList.Controllers
             {
                 return NotFound();
             }
+            if (todo.Deleted)
+                return BadRequest();
 
             return Ok(todo);
+        }
+
+        // GET: api/Todos/search
+        [Route("api/todos/search")]
+        public IQueryable<Todo> GetSearch(string name = "", int? categoryId = null, bool? done = null, DateTime? deadLine = null)
+        {
+            var query = db.Todos.Where(x => !x.Deleted);
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(x => x.Name.Contains(name));
+
+            if (categoryId != null)
+                query = query.Where(x => x.CategoryID == categoryId);
+
+            if (done != null)
+                query = query.Where(x => x.Done == done);
+
+            if (deadLine != null)
+                query = query.Where(x => x.DeadLineDate == deadLine);
+
+            return query;
         }
 
         // PUT: api/Todos/5
@@ -104,7 +126,10 @@ namespace TodoList.Controllers
                 return NotFound();
             }
 
-            db.Todos.Remove(todo);
+            //db.Todos.Remove(todo);
+            todo.Deleted = true;
+            todo.DeletedAt = DateTime.Now;
+            db.Entry(todo).State = EntityState.Modified;
             db.SaveChanges();
 
             return Ok(todo);

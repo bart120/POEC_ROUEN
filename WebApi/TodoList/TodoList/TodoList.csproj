@@ -33,8 +33,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>bin\TodoList.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -102,6 +102,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="html\categories.html" />
+    <Content Include="html\creer-todo.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +132,10 @@
     <Compile Include="Migrations\201807060819263_UpdateDeletedAtBaseModel.Designer.cs">
       <DependentUpon>201807060819263_UpdateDeletedAtBaseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807060922218_UpdateCreatedAtBaseModel.cs" />
+    <Compile Include="Migrations\201807060922218_UpdateCreatedAtBaseModel.Designer.cs">
+      <DependentUpon>201807060922218_UpdateCreatedAtBaseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Category.cs" />
@@ -138,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -160,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807060819263_UpdateDeletedAtBaseModel.resx">
       <DependentUpon>201807060819263_UpdateDeletedAtBaseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807060922218_UpdateCreatedAtBaseModel.resx">
+      <DependentUpon>201807060922218_UpdateCreatedAtBaseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
