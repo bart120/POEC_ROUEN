@@ -93,6 +93,6 @@ Pour faire des validations
 [POSTMAN](https://www.getpostman.com/)  
 [W3C](https://validator.w3.org/)  
 
-- Docs
-[Cahier des charges](https://github.com/bart120/POEC_ROUEN/Projets/BoVoyage-Cahier_des_charges.pdf)  
-[Diagramme de classes](https://github.com/bart120/POEC_ROUEN/Projets/Diagramme_classes.pdf)
+- Docs  
+[Cahier des charges](https://github.com/bart120/POEC_ROUEN/blob/master/Projets/BoVoyage-Cahier_des_charges.pdf)  
+[Diagramme de classes](https://github.com/bart120/POEC_ROUEN/blob/master/Projets/Diagramme_classes.pdf)
