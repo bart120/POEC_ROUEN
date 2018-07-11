@@ -10,7 +10,7 @@
 ## A faire
 
 * A partir du diagramme UML fourni
-  - Créer les les models correspondantes
+  - Créer les models correspondants
   - Générer les migrations
   - Mettre à jour la base de données
 
@@ -28,7 +28,7 @@
   - Les erreurs lors de l'enregistrement d'un formulaire devront être gérées également coté client. L'utilisateur sera averti via un message et/ou un changement graphique.
 
 ## Critères d'évaluations
-Vous serez évalué en binôme, à partir de ce que vous aurez mis à disposition sur votre repository GIT.  
+Vous serez évalué en binôme mais la note sera individuelle en fonction du travail fournit dans le bînome, à partir de ce que vous aurez mis à disposition sur votre repository GIT.  
 * Class models et migrations (3 points)
     - Les class sont-elles correctes ?
     - Les conventions de nommages sont-elles respectées ?
