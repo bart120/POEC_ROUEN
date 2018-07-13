@@ -8,8 +8,6 @@ namespace Roomy.Controllers
 {
     public class TestsController : Controller
     {
-        
-
         // GET: Test
         public ActionResult Index()
         {
