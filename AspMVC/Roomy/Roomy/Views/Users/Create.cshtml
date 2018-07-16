@@ -1,0 +1,19 @@
+﻿@model Roomy.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nouvel utilisateur</h2>
+
+@using (Html.BeginForm("Create", "Users", System.Web.Mvc.FormMethod.Post))
+{
+    <div class="form-group">
+        @*<label for="inputNom">Nom</label>
+        <input type="text" name="Lastname" id="inputNom" placeholder="Entrer votre nom" class="form-control" />*@
+        @Html.LabelFor(x => x.Lastname, "Nom")
+        @Html.EditorFor(x => x.Lastname)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+}
