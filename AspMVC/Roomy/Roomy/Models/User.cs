@@ -10,7 +10,7 @@ namespace Roomy.Models
     {
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [Display(Name = "Nom")]
-        [StringLength(50, MinimumLength = 2, 
+        [StringLength(50, MinimumLength = 2,
             ErrorMessage = "Le champ {0} doit contenir entre {2} et {1} caractères")]
         public string Lastname { get; set; }
 
@@ -33,12 +33,13 @@ namespace Roomy.Models
         [Required(ErrorMessage = "Le champ {0} est obligatoire")]
         [Display(Name = "Mot de passe")]
         [DataType(DataType.Password)]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$", 
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$",
             ErrorMessage = "{0} incorrect.")]
         public string Password { get; set; }
 
         [Display(Name = "Confirmation du mot de passe")]
         [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Erreur sur la {0}.")]
         public string ConfirmedPassword { get; set; }
 
     }
