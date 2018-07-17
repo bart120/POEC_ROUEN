@@ -2,11 +2,13 @@
 
 @{
     /**/
-
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
     ViewBag.Title = "Create";
 }
 
-<h2>Nouvel utilisateur</h2>
+@section SectionTitle{
+    <h2>Nouvel utilisateur</h2>
+}
 
 <div class="row">
     <div class="col-md-6">
@@ -59,3 +61,4 @@
     </div>
 
 </div>
+
