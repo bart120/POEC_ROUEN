@@ -1,18 +1,23 @@
-﻿using Roomy.Models;
+﻿using Roomy.Data;
+using Roomy.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Roomy.Utils;
 
 namespace Roomy.Controllers
 {
     public class UsersController : Controller
     {
+        private RoomyDbContext db = new RoomyDbContext();
+
         // GET: Users
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.Civilities = db.Civilities.ToList();
             return View();
         }
 
@@ -21,10 +26,23 @@ namespace Roomy.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Configuration.ValidateOnSaveEnabled = false;
+                user.Password = user.Password.HashMD5();
+
                 //enregistrer en bdd
+                db.Users.Add(user);
+                db.SaveChanges();
+
                 //redirection
             }
+            ViewBag.Civilities = db.Civilities.ToList();
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
