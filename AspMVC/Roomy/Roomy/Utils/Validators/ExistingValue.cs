@@ -13,22 +13,26 @@ namespace Roomy.Utils.Validators
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            /*using (RoomyDbContext db = new RoomyDbContext())
+            using (RoomyDbContext db = new RoomyDbContext())
             {
-                var dbProperties = db.GetType().GetProperties();
+                /*var dbProperties = db.GetType().GetProperties();
 
                 Type t = validationContext.ObjectType;
-                 db.Set<BaseModel>(validationContext.ObjectType).Any()
+               
+                var ds = db.Set(validationContext.ObjectType).
+                    
+                    .Any(x => x.test == "test");
 
 
 
                     if (dbSet.Any(x => x.GetType().GetProperty(validationContext.MemberName).GetValue(x).ToString() == value.ToString()))
+                  
                     return new ValidationResult("La valeur n'existe pas");
-
+                    */
 
 
                 
-            }*/
+            }
             return ValidationResult.Success;
         }
     }

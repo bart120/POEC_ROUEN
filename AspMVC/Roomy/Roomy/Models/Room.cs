@@ -12,6 +12,7 @@ namespace Roomy.Models
         [Required(ErrorMessage = "Le champ {0} est obligatoire.")]
         [StringLength(50)]
         [Display(Name = "Libellé")]
+
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Le champ {0} est obligatoire.")]
@@ -40,6 +41,13 @@ namespace Roomy.Models
 
         [ForeignKey("UserID")]
         public User User { get; set; }
+
+
+        [Display(Name = "Catégorie")]
+        public int CategoryID { get; set; }
+
+        [ForeignKey("CategoryID")]
+        public Category Category { get; set; }
 
     }
 }
