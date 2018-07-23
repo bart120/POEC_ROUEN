@@ -79,9 +79,9 @@
 <div class="row">
     @foreach (var item in Model.Files)
     {
-        <div class="col-md-3">
+        <div class="col-md-3" id="div-file-@item.ID">
             <img class="img-thumbnail" title="@item.Name" src="data:@item.ContentType;base64, @Convert.ToBase64String(item.Content)" />
-            <p>@item.Name <a href="#" class="btn btn-danger"><i class="fa fa-remove"></i></a></p>
+            <p>@item.Name <a href="#" class="btn btn-danger suppr" data-id="@item.ID"><i class="fa fa-remove"></i></a></p>
         </div>
     }
 </div>
@@ -104,5 +104,23 @@
     <script src="~/Scripts/tinymce/tinymce.min.js"></script>
     <script>
         tinymce.init({ selector: '#Description' })
+
+        //suppr
+        $(document).ready(function () {
+            $("a.suppr").click(function () {
+                var idFile = $(this).data("id");
+                $.ajax({
+                    url: "@Url.Action("DeleteFile", "Rooms")",
+                    type: "POST",
+                    dataType: "json",
+                    data: { id: idFile },
+                    success: function (obj) {
+                        $("#div-file-" + idFile).remove();
+                        alert("Fichier supprimé.");
+                    }
+                });
+            });
+        });
     </script>
+    
 }

@@ -6,9 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Roomy.Utils;
+using Roomy.Filters;
 
 namespace Roomy.Areas.BackOffice.Controllers
 {
+    
     public class AuthenticationController : Controller
     {
         private RoomyDbContext db = new RoomyDbContext();
@@ -24,7 +26,8 @@ namespace Roomy.Areas.BackOffice.Controllers
         [HttpPost]
         public ActionResult Login(AuthenticationLoginViewModel model)
         {
-            var user = db.Users.SingleOrDefault(x => x.Mail == model.Login && x.Password == model.Password.HashMD5());
+            var passwordHash = model.Password.HashMD5();
+            var user = db.Users.SingleOrDefault(x => x.Mail == model.Login && x.Password == passwordHash);
             if(user == null)
             {
                 return RedirectToAction("Login");
@@ -37,6 +40,7 @@ namespace Roomy.Areas.BackOffice.Controllers
         }
 
         // GET: BackOffice/Authentication/Logout
+        [AuthenticationFilter]
         public ActionResult Logout()
         {
             Session.Clear();
