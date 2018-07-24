@@ -57,6 +57,7 @@ Disponible depuis l'url suivante "http://localhost/backoffice/", il permettra au
 * Une page de recherche avancée des clients
 * Une page de détail d'un client
 * La possibilité de télécharger au format csv un fichier incluant nom, prénom, mail de tous les clients (pour le mailing)
+* Le backoffice des commerciaux est uniquement accessible via une authentification. L'ajout d'une compte de commercial ne peut se faire que depuis le backoffice (donc en mode connecté)
 
 
 ## Critères d'évaluations
