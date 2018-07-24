@@ -13,6 +13,12 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+    @* 2 *@
+    @if(!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+    }
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

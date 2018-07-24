@@ -26,17 +26,27 @@ namespace Roomy.Areas.BackOffice.Controllers
         [HttpPost]
         public ActionResult Login(AuthenticationLoginViewModel model)
         {
-            var passwordHash = model.Password.HashMD5();
-            var user = db.Users.SingleOrDefault(x => x.Mail == model.Login && x.Password == passwordHash);
-            if(user == null)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Login");
+                var passwordHash = model.Password.HashMD5();
+                var user = db.Users.SingleOrDefault(x => x.Mail == model.Login && x.Password == passwordHash);
+                if (user == null)
+                {
+                    //1
+                    //ModelState.AddModelError("", "Utilisateur ou mot de passe incorrect.");
+
+                    //2
+                    ViewBag.ErrorMessage = "Utilisateur ou mot de passe incorrect.";
+
+                    return View(model);
+                }
+                else
+                {
+                    Session.Add("USER_BO", user);
+                    return RedirectToAction("Index", "Dashboard", new { area = "BackOffice" });
+                }
             }
-            else
-            {
-                Session.Add("USER_BO", user);
-                return RedirectToAction("Index", "Dashboard", new { area = "BackOffice" });
-            }
+            return View(model);
         }
 
         // GET: BackOffice/Authentication/Logout
