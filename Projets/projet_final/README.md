@@ -38,6 +38,7 @@ Dans un soucis de visibilité sur les moteurs de recherche, les urls des voyages 
 * des pages d'informations diverses (a propos de, ...)
 * une page de mise contact ou le client pourra donner ses coordonnées et poser ses questions au service commercial.
 * une page de création de compte client
+* Sur la page d'accueil, on verra le top 5 des voyages les moins couteux, le top 5 des voyages dont la date de départ est la plus proche, et le top 5 des voyages dont les pays sont les plus présents.
 
 ### Le site web (client authentifié) 
 Toujours disponible depuis l'url racine "/", cette partie supplémentaire à la partie "site web" permetra au client de pour s'authentifier afin de:
@@ -68,7 +69,7 @@ Vous serez évalué en binôme mais la note sera individuelle en fonction du travai
     - Les relations entre les tables correspondent-elles au diagramme des classes ?
     - Les attributs de validation et type de données sont-ils respectés ?
 
-* Site Web (5 points)
+* Site Web (6 points)
     - Le code est-il valide W3C *(HTML, CSS)* et sans erreur dans la console *(JS)* ?
     - Les fonctionnalités sont-elles présentes?
     - La gestion des erreurs est-elle en place ?
@@ -76,7 +77,7 @@ Vous serez évalué en binôme mais la note sera individuelle en fonction du travai
     - La recherche est-elle fonctionnelle ?
     - La réécriture d'url est-elle présente ?
 
-* Site Web Client (5 points)
+* Site Web Client (4 points)
     - Le code est-il valide W3C *(HTML, CSS)* et sans erreur dans la console *(JS)* ?
     - Les fonctionnalités sont-elles présentes ?
     - La gestion des erreurs est-elle en place ?
