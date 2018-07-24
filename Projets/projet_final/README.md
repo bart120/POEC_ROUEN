@@ -69,7 +69,7 @@ Vous serez évalué en binôme mais la note sera individuelle en fonction du travai
 
 * Site Web (5 points)
     - Le code est-il valide W3C *(HTML, CSS)* et sans erreur dans la console *(JS)* ?
-    - Les fonctionnalitées sont-elles présentes?
+    - Les fonctionnalités sont-elles présentes?
     - La gestion des erreurs est-elle en place ?
     - Le visuel est-il *propre* et la mise en page responsive design ?
     - La recherche est-elle fonctionnelle ?
@@ -77,7 +77,7 @@ Vous serez évalué en binôme mais la note sera individuelle en fonction du travai
 
 * Site Web Client (5 points)
     - Le code est-il valide W3C *(HTML, CSS)* et sans erreur dans la console *(JS)* ?
-    - Les fonctionnalitées sont-elles présentes ?
+    - Les fonctionnalités sont-elles présentes ?
     - La gestion des erreurs est-elle en place ?
     - Le visuel est-il *propre* et la mise en page responsive design ?
     - L'accès se fait-il bien par une authentification ?
@@ -85,7 +85,7 @@ Vous serez évalué en binôme mais la note sera individuelle en fonction du travai
 
 * BackOffice (5 points)
     - Le code est-il valide W3C *(HTML, CSS)* et sans erreur dans la console *(JS)* ?
-    - Les fonctionnalitées sont-elles présentes ?
+    - Les fonctionnalités sont-elles présentes ?
     - La gestion des erreurs est-elle en place ?
     - L'accès se fait-il bien par une authentification ?
     - Les recherches avancés sont-elles fonctionnelles ?
