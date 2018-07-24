@@ -7,13 +7,14 @@ using System.Web;
 using System.Web.Mvc;
 using Roomy.Utils;
 using Roomy.Filters;
+using Roomy.Controllers;
 
 namespace Roomy.Areas.BackOffice.Controllers
 {
     
-    public class AuthenticationController : Controller
+    public class AuthenticationController : BaseController
     {
-        private RoomyDbContext db = new RoomyDbContext();
+        
 
         // GET: BackOffice/Authentication/Login
         public ActionResult Login()
@@ -57,13 +58,6 @@ namespace Roomy.Areas.BackOffice.Controllers
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }

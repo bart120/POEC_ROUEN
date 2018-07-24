@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Roomy.Controllers;
 using Roomy.Data;
 using Roomy.Filters;
 using Roomy.Models;
@@ -14,9 +15,9 @@ using Roomy.Models;
 namespace Roomy.Areas.BackOffice.Controllers
 {
     [AuthenticationFilter]
-    public class RoomsController : Controller
+    public class RoomsController : BaseController
     {
-        private RoomyDbContext db = new RoomyDbContext();
+        
 
         // GET: BackOffice/Rooms
         public ActionResult Index()
@@ -171,13 +172,6 @@ namespace Roomy.Areas.BackOffice.Controllers
             return Json("OK");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }
