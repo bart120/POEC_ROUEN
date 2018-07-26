@@ -41,7 +41,7 @@ Dans un soucis de visibilité sur les moteurs de recherche, les urls des voyages 
 * Sur la page d'accueil, on verra le top 5 des voyages les moins couteux, le top 5 des voyages dont la date de départ est la plus proche, et le top 5 des voyages dont les pays sont les plus présents.
 
 ### Le site web (client authentifié) 
-Toujours disponible depuis l'url racine "/", cette partie supplémentaire à la partie "site web" permetra au client de pour s'authentifier afin de:
+Toujours disponible depuis l'url racine "/", cette partie supplémentaire à la partie "site web" permetra au client de s'authentifier afin de:
 * réserver un voyage et ajouter des participants
 * accèder et modifier son profil client
 * voir le statut d'une réservation
@@ -97,7 +97,31 @@ Vous serez évalué en binôme mais la note sera individuelle en fonction du travai
     - Le code est-il lisible *(bon nommage des variables, paramètres et méthodes)* ?
     - Découpage du code en méthodes et bonne disposition des couches
     - Le code est-il optimisé *(utilisation de LINQ, EF, fichier CSS et JS)* ?
+    - Les tests unitaires sont-ils mis en place ?
     - Le repository GIT est-il bien utilisé ?
+
+## Groupes
+### Groupe 1
+- Fatimata M'Baye
+- Nabil Bellil
+- Cyrille Guilbert
+
+### Groupe 2
+- Blandine Ygou
+- Jonathan Bourdon
+- Thomas Legrand
+
+### Groupe 3
+- Jackie Bouet
+- Florian Mouchard
+- Gary Vanwynberghe
+- Vincent Deiz
+
+### Groupe 4
+- Jessy Laniel
+- Jennifer Martin
+- Nicolas Lapinte
+- Antoine Simeon
 
 
 ## Aide mémoire
